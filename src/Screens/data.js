@@ -1,7 +1,7 @@
 export const data = [
     {
         id: 1,
-        name: 'Abbass',
+        name: 'Abbass ',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1fmtO1xNV_yphS6OAtcQuuDzupas7MMZotNVJuyvYIoISmh8L827nvt7anM_ZHsKr8EM&usqp=CAU',
         streak: 103,
         time: '22m'
@@ -83,5 +83,5 @@ export const data = [
         streak: 103,
         time: '22m'
     },
-    
+
 ]

@@ -22,9 +22,10 @@ const TabRoutes = () => {
                 showLabel: false,
             }}
             screenOptions={{
-                tabBarStyle: { position: 'absolute' ,backgroundColor:colors.black},
-                headerShown:false
-              }}
+                tabBarStyle: { position: 'absolute', backgroundColor: colors.black },
+                headerShown: false,
+                tabBarVisible: false
+            }}
 
         >
             <BottomTab.Screen

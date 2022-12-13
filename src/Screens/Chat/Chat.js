@@ -7,6 +7,8 @@ import Styles from './Styles'
 import RoundImg from '../../Components/RoundImg'
 
 import { moderateScale, moderateScaleVertical } from '../../styles/responsiveSize'
+import colors from '../../styles/colors'
+import imagePath from '../../constants/imagePath'
 
 const Chat = () => {
     const renderItem = ({ item, index }) => {
@@ -26,15 +28,15 @@ const Chat = () => {
                         </View>
                     </View>
                 </View>
-                <View>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
                     <RoundImg
                         image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy_mhsdTgqMYWXSUG2hDU0frkwTzzaM8LXDA&usqp=CAU'}
-                    size={25}
+                        size={25}
                     />
-                    <View>
-                        
-                    </View>
+                    <View style={Styles.verticalLine} />
+                    <Image source={imagePath.icChat} style={Styles.chatStyle} />
+
                 </View>
             </View>
         )
@@ -49,6 +51,8 @@ const Chat = () => {
                 renderItem={renderItem}
                 keyExtractor={(item, index) => item.id}
                 ItemSeparatorComponent={() => <View style={Styles.lineStyle} />}
+                showsVerticalScrollIndicator={false}
+            // showsHorizontalScrollIndicator={false}
             />
         </WrapperContainer>
     )

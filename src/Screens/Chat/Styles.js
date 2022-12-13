@@ -34,16 +34,17 @@ const styles = StyleSheet.create({
     lineStyle: {
         borderBottomWidth: 0.4,
         borderBottomColor: colors.blackOpacity20,
-        marginVertical:moderateScaleVertical(16)
+        marginVertical: moderateScaleVertical(16)
     },
     verticalLine: {
         borderRightWidth: 1,
-         borderColor: 'black', height: moderateScale(24),
-         marginHorizontal: moderateScale(8),
-         borderColor: colors.blackOpacity20
+        // borderColor: 'black',
+        height: moderateScale(24),
+        marginHorizontal: moderateScale(5),
+        borderColor: colors.blackOpacity20
     },
     chatStyle: {
-        height: 30, 
+        height: 30,
         width: 30,
         tintColor: colors.blackOpacity50
     },
