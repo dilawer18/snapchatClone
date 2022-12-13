@@ -1,6 +1,6 @@
-import types from '../types'
-import * as auth from './auth'
-
+import * as auth from './auth';
+// import * as users from './users';
 export default {
-    ...auth
+    ...auth,
+    // ...users,
 }

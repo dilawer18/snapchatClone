@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1.5,
-        // padding: 8,
+        padding: 8,
         borderBottomColor: colors.blackOpacity20
     },
     labelStyle: {

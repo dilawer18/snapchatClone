@@ -5,6 +5,7 @@ import HeaderComp from '../../Components/HeaderComp'
 import TextinputWithLable from '../../Components/TextinputWithLable'
 import WrapperContainer from '../../Components/WraperContainer'
 import strings from '../../constants/lang'
+import actions from '../../redux/actions'
 import colors from '../../styles/colors'
 import commonStyles from '../../styles/commonStyles'
 import styles from './Styles'
@@ -29,6 +30,7 @@ const Login = () => {
 
   }, [email, password])
   const onLogin = () => {
+    actions.login(true)
     alert("hay")
   }
   return (
