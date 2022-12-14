@@ -14,3 +14,11 @@ export function logout() {
         payload: data
     })
 }
+
+export function setlogin(data) {
+
+    dispatch({
+        type: types.SET_LOGIN,
+        payload: data
+    })
+}

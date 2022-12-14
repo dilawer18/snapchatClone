@@ -9,7 +9,7 @@ import actions from '../../redux/actions'
 import colors from '../../styles/colors'
 import commonStyles from '../../styles/commonStyles'
 import styles from './Styles'
-styles
+import { setUserData } from '../../utils/utils'
 
 const Login = () => {
   const [state, setState] = useState({
@@ -31,6 +31,7 @@ const Login = () => {
   }, [email, password])
   const onLogin = () => {
     actions.login(true)
+
     alert("hay")
   }
   return (

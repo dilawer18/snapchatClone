@@ -1,4 +1,5 @@
 export default {
     IS_LOGIN: "IS_LOGIN",
     CLEARE_REDUX_STATE: "CLEAR_REDUX_STATE",
+    SET_LOGIN: "SET_LOGIN"
 }
