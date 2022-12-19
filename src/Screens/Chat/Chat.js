@@ -1,32 +1,60 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
 import HomeHeader from '../../Components/HomeHeader'
 import RoundImg from '../../Components/RoundImg'
 import WrapperContainer from '../../Components/WraperContainer'
-import { data } from '../data'
-import styles from './styles'
+// import { data } from '../data'
 
 import imagePath from '../../constants/imagePath'
 import actions from '../../redux/actions'
 import { moderateScale } from '../../styles/responsiveSize'
-
-
-
+import styles from './styles'
 
 const Chat = () => {
+    const [state, setState] = useState({
+        isLoading: false,
+        isRefresh: false,
+        loadeMore: false,
+        data: [],
+        page: 0
+    })
+    const { isLoading, isRefresh, data, page, loadeMore } = state
+
+    const updateState = (data) => setState((state) => ({ ...state, ...data }))
 
     useEffect(() => {
-        apiHit()
+        apiHit(true, page)
     }, [])
 
-    const apiHit = async () => {
+
+    const apiHit = async (val, page = 0, loadeMore = false) => {
+
+        if (loadeMore) {
+            updateState({ loadeMore: true })
+        }
+        if (val) {
+            updateState({ isLoading: true })
+        }
+
+        else {
+            updateState({ isRefresh: true })
+        }
+
         try {
-            const headers = { 'aap-id': '60b3785ace6e48b83defce7' }
-            const res = await actions.getUsers(`?limit=10`, headers)
-            console.log("res+++++++++", res);
+            const headers = { 'app-id': '60b3785ace6e48b83d6efce7' }
+            const res = await actions.getUsers(`?limit=10&page=${page}`, headers)
+            console.log("api res==<<<<", res)
+            updateState({
+                data: [...data, ...res.products],
+                isLoading: false,
+                isRefresh: false,
+                // page: page + 1,
+                loadeMore: false
+            })
 
         } catch (error) {
-            console.log(error, "error>>>>>");
+            console.log('error raised', error)
+            updateState({ isLoading: false })
         }
     }
     const renderItem = ({ item, index }) => {
@@ -34,15 +62,15 @@ const Chat = () => {
             <View style={styles.flatStyle}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <RoundImg
-                        image={item.img}
+                        image={item.images[0]}
                         size={45}
                     />
                     <View style={{ marginLeft: moderateScale(16) }}>
-                        <Text style={styles.nameStyle}>{item.name}</Text>
+                        <Text style={styles.nameStyle}>{item.brand}</Text>
                         <View style={{ flexDirection: "row", alignItems: "center" }}>
                             <Text style={styles.newSnapStyle}>New Snap</Text>
-                            <Text style={styles.timeStyle}>{item.time}</Text>
-                            <Text style={styles.streakStyle}>{item.streak}</Text>
+                            <Text style={styles.timeStyle}>{item.price}</Text>
+                            <Text style={styles.streakStyle}>{item.price}</Text>
                         </View>
                     </View>
                 </View>
